@@ -1,0 +1,926 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CyberSafe - Practical Cyber Safety and Prevention Guide">
+  <title>Safety | CyberSafe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #06111f;
+      --bg2: #08182a;
+      --card: #0d2239;
+      --blue: #16a9ff;
+      --cyan: #20e3ff;
+      --white: #f5fbff;
+      --muted: #9db2c7;
+      --border: rgba(255,255,255,.09);
+      --green: #27d69a;
+      --yellow: #ffc857;
+      --red: #ff5969;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6,17,31,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 110px 0 85px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(39,214,154,.11), transparent 25%),
+        radial-gradient(circle at 80% 20%, rgba(32,227,255,.10), transparent 28%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+      color: var(--cyan);
+      background: rgba(32,227,255,.06);
+      border: 1px solid rgba(32,227,255,.25);
+      font-size: .8rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* COMMON */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .mini {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .75rem;
+      font-weight: bold;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 8px 0 12px;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    /* SAFETY CARDS */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .safety-card {
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: .3s;
+    }
+
+    .safety-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(32,227,255,.3);
+    }
+
+    .card-head {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(32,227,255,.08);
+      font-size: 1.9rem;
+    }
+
+    .card-head h3 {
+      font-size: 1.3rem;
+    }
+
+    .card-head small {
+      color: var(--cyan);
+    }
+
+    .safety-card > p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .check-list {
+      list-style: none;
+    }
+
+    .check-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .check-list li:last-child {
+      border-bottom: none;
+    }
+
+    .check-list li span {
+      color: var(--green);
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    /* DAILY CHECK */
+    .daily {
+      background: var(--bg2);
+    }
+
+    .daily-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .daily-card {
+      padding: 30px;
+      background: #0b2035;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .daily-card h3 {
+      margin-bottom: 20px;
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step:last-child {
+      border-bottom: none;
+    }
+
+    .number {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(32,227,255,.1);
+      color: var(--cyan);
+      font-weight: bold;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* DO / DON'T */
+    .dos-donts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .do-card,
+    .dont-card {
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .do-card {
+      background: rgba(39,214,154,.05);
+      border-color: rgba(39,214,154,.18);
+    }
+
+    .dont-card {
+      background: rgba(255,89,105,.05);
+      border-color: rgba(255,89,105,.18);
+    }
+
+    .do-card h3 {
+      color: var(--green);
+      margin-bottom: 18px;
+    }
+
+    .dont-card h3 {
+      color: var(--red);
+      margin-bottom: 18px;
+    }
+
+    .simple-list {
+      list-style: none;
+    }
+
+    .simple-list li {
+      padding: 10px 0;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .simple-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* EMERGENCY */
+    .emergency {
+      padding: 70px 0;
+    }
+
+    .emergency-box {
+      padding: 45px;
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(255,89,105,.11), rgba(22,169,255,.04)),
+        #0a1c30;
+      border: 1px solid rgba(255,89,105,.18);
+      text-align: center;
+    }
+
+    .emergency-box .big-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .emergency-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .emergency-box p {
+      max-width: 700px;
+      margin: auto auto 25px;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #00101c;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(32,227,255,.18);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(32,227,255,.4);
+      color: var(--cyan);
+    }
+
+    .btn-outline:hover {
+      background: rgba(32,227,255,.08);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #040c15;
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 950px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: #06111f;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .safety-grid,
+      .daily-grid,
+      .dos-donts {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .safety-card,
+      .daily-card,
+      .do-card,
+      .dont-card {
+        padding: 22px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container navbar">
+
+      <a href="index.html" class="logo">
+        Cyber<span>Safe</span>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="threats.html">Threats</a></li>
+        <li><a href="safety.html" class="active">Safety</a></li>
+        <li><a href="workshop.html">Workshop</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+
+      <div class="badge">CYBER SAFETY & PREVENTION</div>
+
+      <h1>
+        Make Safety a <span>Daily Habit</span>
+      </h1>
+
+      <p>
+        Simple digital habits can reduce many everyday cyber risks.
+        Use these practical checklists to protect your accounts,
+        devices, payments and personal information.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SAFETY AREAS -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <div class="mini">Practical Protection</div>
+        <h2>Cyber Safety Checklist</h2>
+        <p>
+          Focus on the areas you use every day instead of trying to
+          remember complicated security rules.
+        </p>
+      </div>
+
+      <div class="safety-grid">
+
+        <!-- PASSWORD -->
+        <article class="safety-card">
+
+          <div class="card-head">
+            <div class="icon">🔐</div>
+
+            <div>
+              <h3>Password & Accounts</h3>
+              <small>Protect your digital identity</small>
+            </div>
+          </div>
+
+          <p>
+            Strong account security reduces the risk of unauthorized access.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Use a unique password for important accounts.</li>
+            <li><span>✓</span> Use a password manager where appropriate.</li>
+            <li><span>✓</span> Enable multi-factor authentication.</li>
+            <li><span>✓</span> Never share passwords or verification codes.</li>
+            <li><span>✓</span> Review account recovery options regularly.</li>
+          </ul>
+
+        </article>
+
+        <!-- MOBILE -->
+        <article class="safety-card">
+
+          <div class="card-head">
+            <div class="icon">📱</div>
+
+            <div>
+              <h3>Mobile & Device Safety</h3>
+              <small>Keep devices protected</small>
+            </div>
+          </div>
+
+          <p>
+            Your phone and computer contain valuable personal information.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Keep the operating system updated.</li>
+            <li><span>✓</span> Install apps from trusted sources.</li>
+            <li><span>✓</span> Use a screen lock or biometric protection.</li>
+            <li><span>✓</span> Remove apps you no longer need.</li>
+            <li><span>✓</span> Back up important information regularly.</li>
+          </ul>
+
+        </article>
+
+        <!-- PAYMENTS -->
+        <article class="safety-card">
+
+          <div class="card-head">
+            <div class="icon">💳</div>
+
+            <div>
+              <h3>Online Payment Safety</h3>
+              <small>Think before you pay</small>
+            </div>
+          </div>
+
+          <p>
+            Digital payments are convenient, but unexpected requests deserve
+            careful verification.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Verify the recipient before sending money.</li>
+            <li><span>✓</span> Never share your UPI PIN or OTP.</li>
+            <li><span>✓</span> Do not scan unknown QR codes to receive money.</li>
+            <li><span>✓</span> Check transaction details before confirming.</li>
+            <li><span>✓</span> Use official banking/payment applications.</li>
+          </ul>
+
+        </article>
+
+        <!-- SOCIAL MEDIA -->
+        <article class="safety-card">
+
+          <div class="card-head">
+            <div class="icon">📲</div>
+
+            <div>
+              <h3>Social Media Safety</h3>
+              <small>Protect your online presence</small>
+            </div>
+          </div>
+
+          <p>
+            Public information can sometimes be used for impersonation
+            or social engineering.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Review privacy settings regularly.</li>
+            <li><span>✓</span> Be careful with unknown friend/follow requests.</li>
+            <li><span>✓</span> Avoid posting sensitive personal details.</li>
+            <li><span>✓</span> Use MFA on social accounts.</li>
+            <li><span>✓</span> Report suspicious or impersonating profiles.</li>
+          </ul>
+
+        </article>
+
+        <!-- EMAIL -->
+        <article class="safety-card">
+
+          <div class="card-head">
+            <div class="icon">📧</div>
+
+            <div>
+              <h3>Email Safety</h3>
+              <small>Stop phishing before it starts</small>
+            </div>
+          </div>
+
+          <p>
+            Unexpected email should be treated carefully, especially when
+            it asks you to click, download or pay.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Check the sender address carefully.</li>
+            <li><span>✓</span> Be cautious with unexpected attachments.</li>
+            <li><span>✓</span> Verify links before opening them.</li>
+            <li><span>✓</span> Do not reply with sensitive information.</li>
+            <li><span>✓</span> Report suspicious messages through available tools.</li>
+          </ul>
+
+        </article>
+
+        <!-- PUBLIC WIFI -->
+        <article class="safety-card">
+
+          <div class="card-head">
+            <div class="icon">📶</div>
+
+            <div>
+              <h3>Public Wi-Fi</h3>
+              <small>Use public networks carefully</small>
+            </div>
+          </div>
+
+          <p>
+            Public networks may not provide the same level of trust as
+            your personal network.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Confirm the correct network name.</li>
+            <li><span>✓</span> Avoid sensitive activity on untrusted networks.</li>
+            <li><span>✓</span> Keep device security features enabled.</li>
+            <li><span>✓</span> Disable automatic connection when appropriate.</li>
+            <li><span>✓</span> Forget networks you no longer use.</li>
+          </ul>
+
+        </article>
+
+        <!-- AI -->
+        <article class="safety-card">
+
+          <div class="card-head">
+            <div class="icon">🤖</div>
+
+            <div>
+              <h3>AI & Deepfake Safety</h3>
+              <small>Verify before trusting</small>
+            </div>
+          </div>
+
+          <p>
+            AI can make fake audio, images and video more convincing.
+            Verification is increasingly important.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Do not trust audio/video alone for urgent requests.</li>
+            <li><span>✓</span> Verify unusual requests through another channel.</li>
+            <li><span>✓</span> Check context and source of important content.</li>
+            <li><span>✓</span> Avoid forwarding unverified claims.</li>
+            <li><span>✓</span> Be careful with sensitive information shared with AI tools.</li>
+          </ul>
+
+        </article>
+
+        <!-- CHILDREN -->
+        <article class="safety-card">
+
+          <div class="card-head">
+            <div class="icon">👨‍👩‍👧</div>
+
+            <div>
+              <h3>Family & Children</h3>
+              <small>Build safe digital habits</small>
+            </div>
+          </div>
+
+          <p>
+            Children and families can benefit from simple conversations
+            about privacy, strangers and online pressure.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Teach children not to share passwords or OTPs.</li>
+            <li><span>✓</span> Encourage them to ask before clicking suspicious links.</li>
+            <li><span>✓</span> Discuss privacy and responsible sharing.</li>
+            <li><span>✓</span> Use appropriate parental controls when needed.</li>
+            <li><span>✓</span> Encourage reporting of uncomfortable online interactions.</li>
+          </ul>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DAILY CHECK -->
+  <section class="daily">
+    <div class="container">
+
+      <div class="section-title">
+        <div class="mini">Before You Click</div>
+        <h2>The 5-Second Safety Check</h2>
+        <p>
+          When a message creates pressure, pause and check these five things.
+        </p>
+      </div>
+
+      <div class="daily-grid">
+
+        <div class="daily-card">
+
+          <h3>🔎 Ask Yourself</h3>
+
+          <div class="step">
+            <div class="number">1</div>
+            <p>Do I know who actually sent this?</p>
+          </div>
+
+          <div class="step">
+            <div class="number">2</div>
+            <p>Was I expecting this message, call or request?</p>
+          </div>
+
+          <div class="step">
+            <div class="number">3</div>
+            <p>Is someone creating unnecessary urgency?</p>
+          </div>
+
+          <div class="step">
+            <div class="number">4</div>
+            <p>Am I being asked for money, OTP, PIN or password?</p>
+          </div>
+
+          <div class="step">
+            <div class="number">5</div>
+            <p>Can I verify this through an official channel?</p>
+          </div>
+
+        </div>
+
+        <div class="daily-card">
+
+          <h3>🛡️ Safer Response</h3>
+
+          <div class="step">
+            <div class="number">1</div>
+            <p>Pause instead of responding immediately.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">2</div>
+            <p>Do not click an unexpected link.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">3</div>
+            <p>Find the organization's official website or app yourself.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">4</div>
+            <p>Verify the request using a separate trusted channel.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">5</div>
+            <p>If suspicious, report it instead of forwarding it.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DO DON'T -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <div class="mini">Remember</div>
+        <h2>Do's & Don'ts</h2>
+        <p>
+          Keep these simple rules in mind while using digital services.
+        </p>
+      </div>
+
+      <div class="dos-donts">
+
+        <div class="do-card">
+          <h3>✓ Do</h3>
+
+          <ul class="simple-list">
+            <li>Use multi-factor authentication.</li>
+            <li>Keep devices and apps updated.</li>
+            <li>Verify unexpected requests.</li>
+            <li>Use official websites and applications.</li>
+            <li>Keep backups of important data.</li>
+            <li>Report suspicious activity.</li>
+          </ul>
+        </div>
+
+        <div class="dont-card">
+          <h3>✕ Don't</h3>
+
+          <ul class="simple-list">
+            <li>Don't share OTPs, PINs or passwords.</li>
+            <li>Don't click unexpected links blindly.</li>
+            <li>Don't install unknown applications.</li>
+            <li>Don't send money because of pressure or fear.</li>
+            <li>Don't assume a caller is genuine because they know your name.</li>
+            <li>Don't forward unverified information.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EMERGENCY -->
+  <section class="emergency">
+    <div class="container">
+
+      <div class="emergency-box">
+
+        <div class="big-icon">🚨</div>
+
+        <h2>Think You Have Been Scammed?</h2>
+
+        <p>
+          Stop further interaction, preserve relevant evidence and
+          use appropriate official channels to seek help or report
+          the incident.
+        </p>
+
+        <a href="report.html" class="btn btn-primary">
+          Open Reporting Guide
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+
+      <div>
+        <div class="logo">
+          Cyber<span>Safe</span>
+        </div>
+
+        <p>Learn • Check • Prevent • Report</p>
+      </div>
+
+      <p>
+        © 2026 CyberSafe. For awareness and educational purposes.
+      </p>
+
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
+```

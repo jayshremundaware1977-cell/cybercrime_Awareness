@@ -1,0 +1,1084 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="CyberSafe Cybercrime Reporting Guide - Learn what to do, preserve evidence and find official reporting channels.">
+
+  <title>Report Cybercrime | CyberSafe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #06111f;
+      --bg2: #08182a;
+      --card: #0d2239;
+      --card2: #0a1c30;
+      --blue: #16a9ff;
+      --cyan: #20e3ff;
+      --white: #f5fbff;
+      --muted: #9db2c7;
+      --border: rgba(255,255,255,.09);
+      --green: #27d69a;
+      --yellow: #ffc857;
+      --red: #ff5969;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6,17,31,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 95px 0 70px;
+      text-align: center;
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,89,105,.10), transparent 27%),
+        radial-gradient(circle at 80% 20%, rgba(32,227,255,.10), transparent 27%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+      color: var(--cyan);
+      background: rgba(32,227,255,.06);
+      border: 1px solid rgba(32,227,255,.25);
+      font-size: .8rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 17px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    /* ================= COMMON ================= */
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .mini {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .75rem;
+      font-weight: bold;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 8px 0 12px;
+    }
+
+    .section-title p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    /* ================= ALERT ================= */
+
+    .alert-section {
+      padding-top: 25px;
+    }
+
+    .emergency {
+      padding: 25px 28px;
+      border-radius: 17px;
+
+      background: rgba(255,89,105,.07);
+      border: 1px solid rgba(255,89,105,.25);
+    }
+
+    .emergency h2 {
+      color: #ff7986;
+      margin-bottom: 7px;
+    }
+
+    .emergency p {
+      color: var(--muted);
+    }
+
+    .emergency strong {
+      color: var(--white);
+    }
+
+    /* ================= INCIDENT TYPES ================= */
+
+    .incident-section {
+      background: var(--bg2);
+    }
+
+    .incident-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .incident-card {
+      padding: 25px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      transition: .3s;
+    }
+
+    .incident-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(32,227,255,.3);
+    }
+
+    .incident-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .incident-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .incident-card p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* ================= STEPS ================= */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      padding: 25px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+
+      background: linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--blue)
+      );
+
+      color: #00101c;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .step h3 {
+      margin-bottom: 7px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    /* ================= REPORTING ================= */
+
+    .reporting {
+      background: var(--bg2);
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .report-card {
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .report-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .report-card p {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 18px;
+    }
+
+    .report-list {
+      list-style: none;
+      margin-bottom: 22px;
+    }
+
+    .report-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .report-list li:last-child {
+      border-bottom: none;
+    }
+
+    .report-list span {
+      color: var(--green);
+      margin-right: 7px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 19px;
+      border-radius: 9px;
+      font-weight: bold;
+      font-size: .88rem;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--blue)
+      );
+      color: #00101c;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(32,227,255,.16);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(32,227,255,.4);
+      color: var(--cyan);
+    }
+
+    .btn-outline:hover {
+      background: rgba(32,227,255,.07);
+    }
+
+    /* ================= EVIDENCE ================= */
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .evidence-card {
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .check-list li:last-child {
+      border-bottom: none;
+    }
+
+    .check-list input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--cyan);
+      margin-top: 3px;
+    }
+
+    /* ================= LINK CHECKER ================= */
+
+    .checker-section {
+      background: var(--bg2);
+    }
+
+    .checker-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 35px;
+
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .checker-box h2 {
+      margin-bottom: 8px;
+    }
+
+    .checker-box > p {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 22px;
+    }
+
+    .url-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .url-form input {
+      flex: 1;
+      min-width: 0;
+
+      padding: 14px;
+      border-radius: 9px;
+
+      border: 1px solid rgba(255,255,255,.12);
+      background: #081a2d;
+      color: white;
+      outline: none;
+    }
+
+    .url-form input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(32,227,255,.07);
+    }
+
+    .url-form button {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 9px;
+
+      background: linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--blue)
+      );
+
+      color: #00101c;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .checker-result {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 13px;
+      font-size: .88rem;
+    }
+
+    .checker-result.warning {
+      display: block;
+      background: rgba(255,200,87,.07);
+      border: 1px solid rgba(255,200,87,.25);
+      color: #e4c97d;
+    }
+
+    .checker-result.danger {
+      display: block;
+      background: rgba(255,89,105,.07);
+      border: 1px solid rgba(255,89,105,.25);
+      color: #ff8792;
+    }
+
+    .checker-result.info {
+      display: block;
+      background: rgba(32,227,255,.06);
+      border: 1px solid rgba(32,227,255,.2);
+      color: #8deeff;
+    }
+
+    .checker-result strong {
+      color: var(--white);
+    }
+
+    .warning-list {
+      margin: 12px 0 0 20px;
+    }
+
+    /* ================= FAQ MINI ================= */
+
+    .faq-section {
+      padding-bottom: 90px;
+    }
+
+    .faq {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    details {
+      margin-bottom: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 18px 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      padding: 0 20px 18px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #040c15;
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+
+        padding: 20px;
+
+        background: #06111f;
+        flex-direction: column;
+        align-items: flex-start;
+
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .incident-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      .incident-grid,
+      .report-grid,
+      .evidence-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .url-form {
+        flex-direction: column;
+      }
+
+      .url-form button {
+        width: 100%;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <a href="index.html" class="logo">
+        Cyber<span>Safe</span>
+      </a>
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="about.html">About</a>
+        </li>
+
+        <li>
+          <a href="threats.html">Threats</a>
+        </li>
+
+        <li>
+          <a href="safety.html">Safety</a>
+        </li>
+
+        <li>
+          <a href="workshop.html">Workshop</a>
+        </li>
+
+        <li>
+          <a href="register.html">Register</a>
+        </li>
+
+        <li>
+          <a href="report.html" class="active">Report</a>
+        </li>
+
+        <li>
+          <a href="resources.html">Resources</a>
+        </li>
+
+        <li>
+          <a href="faq.html">FAQ</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="badge">
+        CYBERCRIME REPORTING GUIDE
+      </div>
+
+      <h1>
+        Don't Panic.<br>
+        <span>Know What to Do.</span>
+      </h1>
+
+      <p>
+        If you encounter an online scam, suspicious transaction,
+        account compromise or another cyber incident, use this guide
+        to understand the next steps.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= EMERGENCY ================= -->
+
+  <section class="alert-section">
+
+    <div class="container">
+
+      <div class="emergency">
+
+        <h2>
+          🚨 If Money Was Lost
+        </h2>
+
+        <p>
+          Act quickly. Contact your bank or payment service through
+          its official customer-support channel and use the
+          <strong>official cybercrime reporting channel</strong>
+          available in your country. Do not wait for the scammer
+          to respond.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= INCIDENT TYPES ================= -->
+
+  <section class="incident-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Identify the Incident
+        </div>
+
+        <h2>
+          What Happened?
+        </h2>
+
+        <p>
+          Different incidents may require different immediate actions.
+        </p>
+
+      </div>
+
+
+      <div class="incident-grid">
+
+        <div class="incident-card">
+
+          <div class="incident-icon">
+            💳
+          </div>
+
+          <h3>
+            Online Payment Fraud
+          </h3>
+
+          <p>
+            Unauthorized payment, UPI scam, card fraud or
+            suspicious money transfer.
+          </p>
+
+        </div>
+
+
+        <div class="incident-card">
+
+          <div class="incident-icon">
+            🎣
+          </div>
+
+          <h3>
+            Phishing
+          </h3>
+
+          <p>
+            Fake email, SMS, website or message asking for
+            credentials or payment.
+          </p>
+
+        </div>
+
+
+        <div class="incident-card">
+
+          <div class="incident-icon">
+            👤
+          </div>
+
+          <h3>
+            Account Compromise
+          </h3>
+
+          <p>
+            Someone may have accessed your email, social media
+            or another online account.
+          </p>
+
+        </div>
+
+
+        <div class="incident-card">
+
+          <div class="incident-icon">
+            📱
+          </div>
+
+          <h3>
+            Mobile / App Scam
+          </h3>
+
+          <p>
+            Suspicious application, remote-access request or
+            unexpected device activity.
+          </p>
+
+        </div>
+
+
+        <div class="incident-card">
+
+          <div class="incident-icon">
+            🪪
+          </div>
+
+          <h3>
+            Identity Misuse
+          </h3>
+
+          <p>
+            Personal information appears to have been misused
+            or exposed without authorization.
+          </p>
+
+        </div>
+
+
+        <div class="incident-card">
+
+          <div class="incident-icon">
+            🗣️
+          </div>
+
+          <h3>
+            Impersonation / Scam
+          </h3>
+
+          <p>
+            Someone is pretending to be a bank, company,
+            friend, official or another person.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= IMMEDIATE STEPS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Immediate Response
+        </div>
+
+        <h2>
+          Follow These Steps
+        </h2>
+
+        <p>
+          These general steps can help reduce further damage and
+          preserve useful information.
+        </p>
+
+      </div>
+
+
+      <div class="steps">
+
+        <div class="step">
+
+          <div class="step-number">
+            1
+          </div>
+
+          <h3>
+            Stop
+          </h3>
+
+          <p>
+            Stop communicating with the suspected scammer.
+            Do not send additional money, OTPs or passwords.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            2
+          </div>
+
+          <h3>
+            Secure
+          </h3>
+
+          <p>
+            Change compromised passwords, enable MFA and
+            contact your bank or service provider if needed.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            3
+          </div>
+
+          <h3>
+            Preserve
+          </h3>
+
+          <p>
+            Keep transaction details, messages, screenshots,
+            email headers and relevant URLs.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            4
+          </div>
+
+          <h3>
+            Report
+          </h3>
+
+          <p>
+            Use an appropriate official reporting channel and
+            provide accurate information.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= OFFICIAL REPORTING ================= -->
+
+  <section class="reporting">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Official Channels
+        </div>
+
+        <h2>
+          Where Can You Report?
+        </h2>
+
+        <p>
+          Use official government or service-provider channels
+          instead of links received from unknown people.
+        </p>
+
+      </div>
+
+
+      <div class="report-grid">
+
+
+        <div class="report-card">
+
+          <h3>
+            🇮🇳 India — Cybercrime Reporting
+          </h3>
+
+          <p>
+            For cybercrime incidents in India, use the official
+            National Cyber Crime Reporting Portal.
+          </p>
+
+          <ul class="report-list">
+
+            <li>
+              <span>✓</span>
+              Report cybercrime incidents online
+            </li>
+
+            <li>
+              <span>✓</span>
+              Keep relevant incident information ready
+            </li>
+
+            <li>
+              <span>✓</span>
+              Use official government websites
+            </li>
+
+          </ul>
+
+          <a
+            href="https://www.cybercrime.gov.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            Open Official Portal ↗
+          </a>
+
+        </div>
+
+
+        <div class="report-card">
+
+          <h3>
+            🏦 Payment / Bank Fraud
+          </h3>
+
+          <p>
+            If a transaction is unauthorized or fraudulent,
+            contact the relevant bank, card issuer or payment
+            provider using its official support channel.
+          </p>
+
+          <ul class="report-list">
+
+            <li>
+              <span>✓</span>
+              Note transaction/re
+```

@@ -1,0 +1,1041 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="CyberSafe Cybercrime Awareness and Prevention Workshop - Topics, Schedule, Activities and Speakers">
+
+  <title>Workshop | CyberSafe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #06111f;
+      --bg2: #08182a;
+      --card: #0d2239;
+      --blue: #16a9ff;
+      --cyan: #20e3ff;
+      --white: #f5fbff;
+      --muted: #9db2c7;
+      --border: rgba(255,255,255,.09);
+      --green: #27d69a;
+      --yellow: #ffc857;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6,17,31,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 110px 0 85px;
+      text-align: center;
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(22,169,255,.13), transparent 28%),
+        radial-gradient(circle at 80% 25%, rgba(32,227,255,.10), transparent 28%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+
+      color: var(--cyan);
+      background: rgba(32,227,255,.06);
+      border: 1px solid rgba(32,227,255,.25);
+
+      font-size: .8rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* ================= COMMON ================= */
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .mini {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .75rem;
+      font-weight: bold;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 8px 0 12px;
+    }
+
+    .section-title p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    /* ================= WORKSHOP INFO ================= */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 25px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .info-card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .info-card h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* ================= TOPICS ================= */
+
+    .topics {
+      background: var(--bg2);
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .topic-card {
+      padding: 28px;
+      background: #0b2035;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      transition: .3s;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(32,227,255,.3);
+    }
+
+    .topic-icon {
+      font-size: 2rem;
+      margin-bottom: 13px;
+    }
+
+    .topic-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .topic-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* ================= SCHEDULE ================= */
+
+    .schedule-wrapper {
+      overflow-x: auto;
+    }
+
+    .schedule {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .schedule th,
+    .schedule td {
+      padding: 17px 18px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .schedule th {
+      background: #0d2943;
+      color: var(--cyan);
+      font-size: .9rem;
+    }
+
+    .schedule td {
+      color: var(--muted);
+      background: #091b2d;
+    }
+
+    .schedule tr:hover td {
+      background: #0c2137;
+    }
+
+    .time {
+      color: var(--white) !important;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    /* ================= ACTIVITIES ================= */
+
+    .activities {
+      background: var(--bg2);
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .activity-card {
+      display: flex;
+      gap: 18px;
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+    }
+
+    .activity-icon {
+      width: 55px;
+      height: 55px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(32,227,255,.08);
+      font-size: 1.7rem;
+    }
+
+    .activity-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .activity-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* ================= SPEAKERS ================= */
+
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .speaker-card {
+      padding: 30px;
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .speaker-avatar {
+      width: 90px;
+      height: 90px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 15px;
+
+      border-radius: 50%;
+      background:
+        linear-gradient(135deg, rgba(32,227,255,.18), rgba(22,169,255,.08));
+
+      border: 1px solid rgba(32,227,255,.2);
+      font-size: 2.4rem;
+    }
+
+    .speaker-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .speaker-role {
+      color: var(--cyan);
+      font-size: .85rem;
+      margin-bottom: 12px;
+    }
+
+    .speaker-card p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    /* ================= OUTCOMES ================= */
+
+    .outcomes {
+      background: var(--bg2);
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .outcome-card {
+      padding: 30px;
+      background: #0b2035;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .outcome-card h3 {
+      margin-bottom: 18px;
+    }
+
+    .outcome-list {
+      list-style: none;
+    }
+
+    .outcome-list li {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .outcome-list li:last-child {
+      border-bottom: none;
+    }
+
+    .outcome-list span {
+      color: var(--green);
+      margin-right: 8px;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      padding: 75px 0;
+    }
+
+    .cta-box {
+      padding: 55px 25px;
+      text-align: center;
+      border-radius: 22px;
+
+      background:
+        linear-gradient(135deg, rgba(22,169,255,.16), rgba(32,227,255,.03)),
+        #0a1c30;
+
+      border: 1px solid rgba(32,227,255,.18);
+    }
+
+    .cta-box h2 {
+      margin: 8px 0 12px;
+    }
+
+    .cta-box p {
+      max-width: 680px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #00101c;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(32,227,255,.18);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(32,227,255,.4);
+      color: var(--cyan);
+      margin-left: 8px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(32,227,255,.08);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #040c15;
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .topic-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .speaker-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+
+        padding: 20px;
+
+        background: #06111f;
+        flex-direction: column;
+        align-items: flex-start;
+
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 700px) {
+
+      .topic-grid,
+      .activity-grid,
+      .outcome-grid,
+      .speaker-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header>
+    <div class="container navbar">
+
+      <a href="index.html" class="logo">
+        Cyber<span>Safe</span>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="about.html">About</a>
+        </li>
+
+        <li>
+          <a href="threats.html">Threats</a>
+        </li>
+
+        <li>
+          <a href="safety.html">Safety</a>
+        </li>
+
+        <li>
+          <a href="workshop.html" class="active">Workshop</a>
+        </li>
+
+        <li>
+          <a href="register.html">Register</a>
+        </li>
+
+        <li>
+          <a href="report.html">Report</a>
+        </li>
+
+        <li>
+          <a href="resources.html">Resources</a>
+        </li>
+
+        <li>
+          <a href="faq.html">FAQ</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="badge">
+        CYBERSAFE WORKSHOP
+      </div>
+
+      <h1>
+        Learn. Practice.<br>
+        <span>Stay CyberSafe.</span>
+      </h1>
+
+      <p>
+        An awareness-focused workshop designed to help students,
+        families, professionals and organizations understand common
+        cyber threats and develop practical prevention habits.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= BASIC INFO ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Workshop Overview
+        </div>
+
+        <h2>
+          Everything You Need to Know
+        </h2>
+
+        <p>
+          The workshop combines short sessions, real-world examples,
+          demonstrations and interactive activities.
+        </p>
+
+      </div>
+
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <div class="icon">📅</div>
+          <h3>Date</h3>
+          <p>To be announced</p>
+        </div>
+
+        <div class="info-card">
+          <div class="icon">⏰</div>
+          <h3>Duration</h3>
+          <p>Full-day awareness workshop</p>
+        </div>
+
+        <div class="info-card">
+          <div class="icon">📍</div>
+          <h3>Mode</h3>
+          <p>Offline / Online</p>
+        </div>
+
+        <div class="info-card">
+          <div class="icon">👥</div>
+          <h3>Audience</h3>
+          <p>Students, families & professionals</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= TOPICS ================= -->
+
+  <section class="topics">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Workshop Curriculum
+        </div>
+
+        <h2>
+          Topics We Cover
+        </h2>
+
+        <p>
+          Sessions focus on practical awareness and everyday
+          digital safety.
+        </p>
+
+      </div>
+
+
+      <div class="topic-grid">
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            🎣
+          </div>
+
+          <h3>
+            Phishing & Online Scams
+          </h3>
+
+          <p>
+            Understand fake messages, suspicious links, impersonation
+            attempts and common scam patterns.
+          </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            💳
+          </div>
+
+          <h3>
+            Digital Payment Safety
+          </h3>
+
+          <p>
+            Learn safer practices for online payments, UPI,
+            QR codes and unexpected payment requests.
+          </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            🔐
+          </div>
+
+          <h3>
+            Password & Account Security
+          </h3>
+
+          <p>
+            Learn about strong passwords, password managers and
+            multi-factor authentication.
+          </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            📱
+          </div>
+
+          <h3>
+            Mobile & App Safety
+          </h3>
+
+          <p>
+            Understand app permissions, updates, suspicious
+            applications and device protection.
+          </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            🧠
+          </div>
+
+          <h3>
+            Social Engineering
+          </h3>
+
+          <p>
+            Learn how manipulation, urgency and impersonation
+            can influence online decisions.
+          </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            🤖
+          </div>
+
+          <h3>
+            AI & Deepfake Awareness
+          </h3>
+
+          <p>
+            Understand why audio, images and videos may need
+            independent verification.
+          </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            👤
+          </div>
+
+          <h3>
+            Identity & Privacy
+          </h3>
+
+          <p>
+            Learn practical ways to protect personal information
+            and online identity.
+          </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            🚨
+          </div>
+
+          <h3>
+            Incident Response
+          </h3>
+
+          <p>
+            Understand what to do after a suspicious transaction,
+            account compromise or cyber incident.
+          </p>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <div class="topic-icon">
+            📢
+          </div>
+
+          <h3>
+            Cybercrime Reporting
+          </h3>
+
+          <p>
+            Learn how to preserve relevant information and find
+            appropriate official reporting channels.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= SCHEDULE ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Sample Schedule
+        </div>
+
+        <h2>
+          Workshop Schedule
+        </h2>
+
+        <p>
+          The timings below are a sample structure and can be
+          changed according to your actual workshop.
+        </p>
+
+      </div>
+
+
+      <div class="schedule-wrapper">
+
+        <table class="schedule">
+
+          <thead>
+
+            <tr>
+              <th>Time</th>
+              <th>Session</th>
+              <th>Activity</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td class="time">09:30 AM</td>
+              <td>Registration & Welcome</td>
+              <td>Participant check-in</td>
+            </tr>
+
+            <tr>
+              <td class="time">10:00 AM</td>
+              <td>Introduction to Cybercrime</td>
+              <td>Awareness session</td>
+            </tr>
+
+            <tr>
+              <td class="time">11:00 AM</td>
+              <td>Phishing & Online Scams</td>
+              <td>Example-based learning</td>
+            </tr>
+
+            <tr>
+              <td class="time">12:00 PM</td>
+              <td>Digital Payment Safety</td>
+              <td>Scenario discussion</td>
+            </tr>
+
+            <tr>
+              <td class="time">01:00 PM</td>
+              <td>Lunch Break</td>
+              <td>Break</td>
+            </tr>
+
+            <tr>
+              <td class="time">02:00 PM</td>
+              <td>Account & Device Security</td>
+              <td>Practical checklist</td>
+            </tr>
+
+            <tr>
+              <td class="time">03:00 PM</td>
+              <td>Social Engineering & AI</td>
+              <td>Interactive activity</td>
+            </tr>
+
+            <tr>
+              <td class="time">04:00 PM</td>
+              <td>Reporting & Incident Response</td>
+              <td>Response guide</td>
+            </tr>
+
+            <tr>
+              <td class="time">04:45 PM</td>
+              <td>Q&A</td>
+              <td>Participant questions</td>
+            </tr>
+
+            <tr>
+              <td class="time">05:15 PM</td>
+              <td>Closing</td>
+              <td>Key takeaways</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ACTIVITIES ================= -->
+
+  <section class="activities">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Learn By Doing
+        </div>
+
+        <h2>
+          Interactive Activities
+        </h2>
+
+        <p>
+          Participants can practice identifying suspicious situations
+          instead of only listening to presentations.
+        </p>
+
+      </div>
+
+
+      <div class="activity-grid">
+
+        <div class="ac
+```

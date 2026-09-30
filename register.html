@@ -1,0 +1,791 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Register for the CyberSafe Cybercrime Awareness and Prevention Workshop">
+
+  <title>Register | CyberSafe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #06111f;
+      --bg2: #08182a;
+      --card: #0d2239;
+      --blue: #16a9ff;
+      --cyan: #20e3ff;
+      --white: #f5fbff;
+      --muted: #9db2c7;
+      --border: rgba(255,255,255,.09);
+      --green: #27d69a;
+      --red: #ff5969;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6,17,31,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 90px 0 65px;
+      text-align: center;
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(22,169,255,.13), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(32,227,255,.10), transparent 28%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+      color: var(--cyan);
+      background: rgba(32,227,255,.06);
+      border: 1px solid rgba(32,227,255,.25);
+      font-size: .8rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    /* MAIN */
+
+    .register-section {
+      padding: 70px 0 90px;
+    }
+
+    .register-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.4fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* INFO */
+
+    .info-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .info-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .info-box > p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .benefit:last-child {
+      border-bottom: none;
+    }
+
+    .benefit-icon {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: rgba(32,227,255,.08);
+      font-size: 1.25rem;
+    }
+
+    .benefit h3 {
+      font-size: .95rem;
+      margin-bottom: 3px;
+    }
+
+    .benefit p {
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(255,200,87,.06);
+      border: 1px solid rgba(255,200,87,.18);
+      color: #d9c891;
+      font-size: .82rem;
+    }
+
+    /* FORM */
+
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 35px;
+    }
+
+    .form-card h2 {
+      margin-bottom: 7px;
+    }
+
+    .form-subtitle {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 28px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: .88rem;
+      font-weight: bold;
+    }
+
+    .required {
+      color: var(--red);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 9px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #081a2d;
+      color: var(--white);
+      outline: none;
+      font-size: .9rem;
+      transition: .25s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #657b91;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(32,227,255,.08);
+    }
+
+    select option {
+      background: #081a2d;
+      color: white;
+    }
+
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: normal;
+    }
+
+    .radio-item input {
+      width: auto;
+      accent-color: var(--cyan);
+    }
+
+    .check-box {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 5px 0 22px;
+    }
+
+    .check-box input {
+      width: auto;
+      margin-top: 4px;
+      accent-color: var(--cyan);
+    }
+
+    .check-box label {
+      margin: 0;
+      color: var(--muted);
+      font-weight: normal;
+      font-size: .82rem;
+    }
+
+    .check-box a {
+      color: var(--cyan);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 9px;
+      cursor: pointer;
+
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #00101c;
+
+      font-size: .95rem;
+      font-weight: bold;
+
+      transition: .3s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(32,227,255,.18);
+    }
+
+    .form-message {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: .88rem;
+    }
+
+    .form-message.success {
+      display: block;
+      color: var(--green);
+      background: rgba(39,214,154,.07);
+      border: 1px solid rgba(39,214,154,.2);
+    }
+
+    .form-message.error {
+      display: block;
+      color: var(--red);
+      background: rgba(255,89,105,.07);
+      border: 1px solid rgba(255,89,105,.2);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #040c15;
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: #06111f;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .register-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-card,
+      .info-box {
+        padding: 23px;
+      }
+
+      .register-section {
+        padding: 50px 0 70px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header>
+    <div class="container navbar">
+
+      <a href="index.html" class="logo">
+        Cyber<span>Safe</span>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="threats.html">Threats</a></li>
+        <li><a href="safety.html">Safety</a></li>
+        <li><a href="workshop.html">Workshop</a></li>
+        <li><a href="register.html" class="active">Register</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+
+      </ul>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="badge">
+        CYBERSAFE WORKSHOP
+      </div>
+
+      <h1>
+        Register for <span>CyberSafe</span>
+      </h1>
+
+      <p>
+        Join our cybercrime awareness and prevention workshop
+        and learn practical ways to stay safer online.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- REGISTRATION -->
+
+  <section class="register-section">
+
+    <div class="container">
+
+      <div class="register-layout">
+
+
+        <!-- LEFT INFORMATION -->
+
+        <div class="info-box">
+
+          <h2>
+            Why Attend?
+          </h2>
+
+          <p>
+            Learn simple and practical cyber safety habits that
+            you can use in your everyday digital life.
+          </p>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              🛡️
+            </div>
+
+            <div>
+              <h3>Understand Cyber Threats</h3>
+
+              <p>
+                Learn about phishing, scams, social engineering,
+                identity theft and other common threats.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              🔐
+            </div>
+
+            <div>
+              <h3>Improve Account Security</h3>
+
+              <p>
+                Learn about strong passwords, MFA and safer
+                account practices.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              💳
+            </div>
+
+            <div>
+              <h3>Payment Safety</h3>
+
+              <p>
+                Understand common digital payment scams and
+                safer transaction habits.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              🚨
+            </div>
+
+            <div>
+              <h3>Know What to Do</h3>
+
+              <p>
+                Learn basic steps to take if you suspect a
+                cybercrime or online scam.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="notice">
+            💡 This registration form is a front-end demonstration.
+            Connect it to a secure backend/database before using it
+            for real participant data.
+          </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <div class="form-card">
+
+          <h2>
+            Participant Registration
+          </h2>
+
+          <p class="form-subtitle">
+            Fields marked with <span class="required">*</span>
+            are required.
+          </p>
+
+
+          <form id="registrationForm" novalidate>
+
+
+            <!-- NAME + EMAIL -->
+
+            <div class="form-row">
+
+              <div class="form-group">
+
+                <label for="fullName">
+                  Full Name <span class="required">*</span>
+                </label>
+
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  autocomplete="name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="email">
+                  Email Address <span class="required">*</span>
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@email.com"
+                  autocomplete="email"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+
+            <!-- MOBILE + AGE -->
+
+            <div class="form-row">
+
+              <div class="form-group">
+
+                <label for="mobile">
+                  Mobile Number <span class="required">*</span>
+                </label>
+
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  placeholder="10-digit mobile number"
+                  inputmode="numeric"
+                  maxlength="10"
+                  autocomplete="tel"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="age">
+                  Age Group
+                </label>
+
+                <select id="age" name="age">
+
+                  <option value="">
+                    Select age group
+                  </option>
+
+                  <option value="under-18">
+                    Under 18
+                  </option>
+
+                  <option value="18-25">
+                    18–25
+                  </option>
+
+                  <option value="26-40">
+                    26–40
+                  </option>
+
+                  <option value="41-60">
+                    41–60
+                  </option>
+
+                  <option value="60-plus">
+                    60+
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+            <!-- PARTICIPANT TYPE -->
+
+            <div class="form-group">
+
+              <label for="participant">
+                I am a <span class="required">*</span>
+              </label>
+
+              <select id="participant" name="participant" required>
+
+                <option value="">
+                  Select participant type
+                </option>
+
+                <option value="student">
+                  Student
+                </option>
+
+                <option value="teacher">
+                  Teacher / Faculty
+                </option>
+
+                <option value="professional">
+                  Working Professional
+                </option>
+
+                <option value="business">
+                  Business Owner
+                </option>
+
+                <option value="parent">
+                  Parent / Guardian
+                </option>
+
+                <option value="other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- ORGANIZATION -->
+
+            <div class="form-group">
+
+              <label for="organization">
+                College / Organization
+              </label>
+
+              <input
+                type="tex
+```

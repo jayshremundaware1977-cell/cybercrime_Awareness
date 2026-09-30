@@ -1,0 +1,1031 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="CyberSafe resources - cyber safety checklists, phishing prevention, password security and useful official resources.">
+
+  <title>Resources | CyberSafe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #06111f;
+      --bg2: #08182a;
+      --card: #0d2239;
+      --blue: #16a9ff;
+      --cyan: #20e3ff;
+      --white: #f5fbff;
+      --muted: #9db2c7;
+      --border: rgba(255,255,255,.09);
+      --green: #27d69a;
+      --yellow: #ffc857;
+      --red: #ff5969;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6,17,31,.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 95px 0 70px;
+      text-align: center;
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(32,227,255,.10), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(22,169,255,.10), transparent 28%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+      color: var(--cyan);
+      background: rgba(32,227,255,.06);
+      border: 1px solid rgba(32,227,255,.25);
+      font-size: .8rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 17px;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    /* ================= COMMON ================= */
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .mini {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .75rem;
+      font-weight: bold;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 8px 0 12px;
+    }
+
+    .section-title p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    /* ================= RESOURCE CARDS ================= */
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .resource-card {
+      padding: 27px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: .3s;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(32,227,255,.3);
+    }
+
+    .resource-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(32,227,255,.08);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .resource-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      font-size: .87rem;
+      margin-bottom: 18px;
+    }
+
+    .resource-btn {
+      display: inline-block;
+      padding: 9px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(32,227,255,.35);
+      color: var(--cyan);
+      font-size: .82rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .resource-btn:hover {
+      background: rgba(32,227,255,.07);
+    }
+
+    /* ================= CHECKLIST ================= */
+
+    .checklist-section {
+      background: var(--bg2);
+    }
+
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .checklist-card {
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .checklist-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .checklist-card > p {
+      color: var(--muted);
+      font-size: .86rem;
+      margin-bottom: 17px;
+    }
+
+    .check-list {
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .check-list li:last-child {
+      border-bottom: none;
+    }
+
+    .check-list input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--cyan);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .progress-area {
+      margin-top: 20px;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      font-size: .78rem;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .progress {
+      height: 7px;
+      background: #071626;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--blue)
+      );
+      transition: .3s;
+    }
+
+    /* ================= QUICK TIPS ================= */
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .tip {
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .tip-number {
+      color: var(--cyan);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .tip h3 {
+      font-size: 1rem;
+      margin-bottom: 7px;
+    }
+
+    .tip p {
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    /* ================= OFFICIAL LINKS ================= */
+
+    .official {
+      background: var(--bg2);
+    }
+
+    .official-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .official-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .official-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .official-card p {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .official-link {
+      flex-shrink: 0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      background: linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--blue)
+      );
+      color: #00101c;
+      font-weight: bold;
+      font-size: .8rem;
+    }
+
+    /* ================= COPY BOX ================= */
+
+    .emergency-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 30px;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(32,227,255,.06),
+          rgba(22,169,255,.03)
+        );
+
+      border: 1px solid rgba(32,227,255,.18);
+    }
+
+    .emergency-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .emergency-box p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .emergency-text {
+      padding: 17px;
+      border-radius: 10px;
+      background: #071626;
+      color: #c7d9e8;
+      font-size: .88rem;
+      border: 1px solid var(--border);
+    }
+
+    .copy-btn {
+      margin-top: 12px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+
+      background: var(--cyan);
+      color: #00101c;
+      font-weight: bold;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #040c15;
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+
+        padding: 20px;
+
+        background: #06111f;
+        flex-direction: column;
+        align-items: flex-start;
+
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      .resource-grid,
+      .checklist-grid,
+      .official-grid,
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .official-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .official-link {
+        width: 100%;
+        text-align: center;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <a href="index.html" class="logo">
+        Cyber<span>Safe</span>
+      </a>
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="about.html">About</a>
+        </li>
+
+        <li>
+          <a href="threats.html">Threats</a>
+        </li>
+
+        <li>
+          <a href="safety.html">Safety</a>
+        </li>
+
+        <li>
+          <a href="workshop.html">Workshop</a>
+        </li>
+
+        <li>
+          <a href="register.html">Register</a>
+        </li>
+
+        <li>
+          <a href="report.html">Report</a>
+        </li>
+
+        <li>
+          <a href="resources.html" class="active">
+            Resources
+          </a>
+        </li>
+
+        <li>
+          <a href="faq.html">FAQ</a>
+        </li>
+
+        <li>
+          <a href="contact.html">Contact</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="badge">
+        CYBERSAFE RESOURCE CENTER
+      </div>
+
+      <h1>
+        Learn. Check. <span>Stay Safe.</span>
+      </h1>
+
+      <p>
+        Practical cyber safety resources, checklists and trusted
+        links to help you build safer digital habits.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= RESOURCE CARDS ================= -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Resource Library
+        </div>
+
+        <h2>
+          Useful Cyber Safety Tools
+        </h2>
+
+        <p>
+          Start with a checklist or guide that matches your
+          everyday digital needs.
+        </p>
+
+      </div>
+
+
+      <div class="resource-grid">
+
+
+        <div class="resource-card">
+
+          <div class="resource-icon">
+            🔐
+          </div>
+
+          <h3>
+            Password Security
+          </h3>
+
+          <p>
+            Learn how to create strong, unique passwords and
+            protect your important accounts.
+          </p>
+
+          <a
+            href="#password"
+            class="resource-btn"
+          >
+            View Checklist
+          </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+          <div class="resource-icon">
+            🎣
+          </div>
+
+          <h3>
+            Phishing Protection
+          </h3>
+
+          <p>
+            Use simple checks to identify suspicious emails,
+            messages and websites.
+          </p>
+
+          <a
+            href="#phishing"
+            class="resource-btn"
+          >
+            View Checklist
+          </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+          <div class="resource-icon">
+            📱
+          </div>
+
+          <h3>
+            Mobile Safety
+          </h3>
+
+          <p>
+            Improve device security, app safety and privacy
+            settings.
+          </p>
+
+          <a
+            href="#mobile"
+            class="resource-btn"
+          >
+            View Checklist
+          </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+          <div class="resource-icon">
+            💳
+          </div>
+
+          <h3>
+            Payment Safety
+          </h3>
+
+          <p>
+            Learn safer habits for UPI, cards, online shopping
+            and digital payments.
+          </p>
+
+          <a
+            href="#payment"
+            class="resource-btn"
+          >
+            View Tips
+          </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+          <div class="resource-icon">
+            👨‍👩‍👧
+          </div>
+
+          <h3>
+            Family Safety
+          </h3>
+
+          <p>
+            Simple cyber safety practices for children, parents
+            and senior family members.
+          </p>
+
+          <a
+            href="#family"
+            class="resource-btn"
+          >
+            View Tips
+          </a>
+
+        </div>
+
+
+        <div class="resource-card">
+
+          <div class="resource-icon">
+            🚨
+          </div>
+
+          <h3>
+            Incident Response
+          </h3>
+
+          <p>
+            Know what information to preserve and what steps to
+            take after a cyber incident.
+          </p>
+
+          <a
+            href="report.html"
+            class="resource-btn"
+          >
+            Reporting Guide
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= CHECKLISTS ================= -->
+
+  <section class="checklist-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="mini">
+          Interactive Checklists
+        </div>
+
+        <h2>
+          Check Your Security Habits
+        </h2>
+
+        <p>
+          Tick the items you already follow. Your progress is
+          calculated on this page only.
+        </p>
+
+      </div>
+
+
+      <div class="checklist-grid">
+
+
+        <!-- PASSWORD -->
+
+        <div
+          class="checklist-card"
+          id="password"
+        >
+
+          <h3>
+            🔐 Password & Account Checklist
+          </h3>
+
+          <p>
+            Good account security starts with unique credentials
+            and additional protection.
+          </p>
+
+          <ul class="check-list">
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I use unique passwords for important accounts.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I use a trusted password manager when appropriate.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I enable multi-factor authentication where available.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I do not share passwords or OTPs with others.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I review important account security settings.</span>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- PHISHING -->
+
+        <div
+          class="checklist-card"
+          id="phishing"
+        >
+
+          <h3>
+            🎣 Phishing Checklist
+          </h3>
+
+          <p>
+            Slow down before clicking unexpected links or
+            responding to urgent requests.
+          </p>
+
+          <ul class="check-list">
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I check the sender before trusting a message.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I inspect links before opening them.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I avoid urgent payment or verification requests.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I verify unexpected requests using another trusted channel.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I never enter sensitive information on suspicious websites.</span>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- MOBILE -->
+
+        <div
+          class="checklist-card"
+          id="mobile"
+        >
+
+          <h3>
+            📱 Mobile Safety Checklist
+          </h3>
+
+          <p>
+            Keep your phone, applications and personal data
+            protected.
+          </p>
+
+          <ul class="check-list">
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I keep my phone software updated.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I install apps from trusted sources.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I review app permissions regularly.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I use a screen lock on my device.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I avoid unknown remote-access applications.</span>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- PAYMENT -->
+
+        <div
+          class="checklist-card"
+          id="payment"
+        >
+
+          <h3>
+            💳 Payment Safety Checklist
+          </h3>
+
+          <p>
+            Use extra caution whenever money or financial
+            information is involved.
+          </p>
+
+          <ul class="check-list">
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I verify the recipient before making a payment.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I never share my UPI PIN or OTP.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I verify payment requests independently.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I check transaction notifications carefully.</span>
+            </li>
+
+            <li>
+              <input type="checkbox" class="security-check">
+              <span>I contact my bank quickly if I notice an unauthorized transaction.</s
+```

@@ -1,0 +1,924 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CyberSafe - Common Cyber Threats and Scam Awareness">
+  <title>Threats | CyberSafe</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #06111f;
+      --bg2: #08182a;
+      --card: #0d2239;
+      --blue: #16a9ff;
+      --cyan: #20e3ff;
+      --white: #f5fbff;
+      --muted: #9db2c7;
+      --border: rgba(255,255,255,.09);
+      --red: #ff5969;
+      --yellow: #ffc857;
+      --green: #27d69a;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6,17,31,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* HERO */
+    .page-hero {
+      padding: 105px 0 80px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,89,105,.10), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(32,227,255,.10), transparent 28%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 30px;
+      color: var(--cyan);
+      background: rgba(32,227,255,.06);
+      border: 1px solid rgba(32,227,255,.25);
+      font-size: .8rem;
+      margin-bottom: 18px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 span {
+      color: var(--cyan);
+    }
+
+    .page-hero p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* COMMON */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .mini {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .75rem;
+      font-weight: bold;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 8px 0 12px;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    /* QUICK NAV */
+    .quick-nav {
+      background: var(--bg2);
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quick-links a {
+      padding: 9px 15px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--muted);
+      font-size: .85rem;
+      transition: .3s;
+    }
+
+    .quick-links a:hover {
+      color: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    /* THREAT CARDS */
+    .threat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .threat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px;
+      transition: .3s;
+    }
+
+    .threat-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(32,227,255,.3);
+    }
+
+    .threat-head {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .threat-icon {
+      width: 55px;
+      height: 55px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(32,227,255,.08);
+      font-size: 1.8rem;
+    }
+
+    .threat-head h3 {
+      font-size: 1.3rem;
+    }
+
+    .threat-head small {
+      color: var(--red);
+    }
+
+    .threat-card > p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .info-box {
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #071725;
+      border: 1px solid var(--border);
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .info-box p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .warning-box {
+      border-left: 3px solid var(--yellow);
+    }
+
+    .safe-box {
+      border-left: 3px solid var(--green);
+    }
+
+    /* RED FLAGS */
+    .red-flags {
+      background: var(--bg2);
+    }
+
+    .flags-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .flag-card {
+      padding: 25px;
+      background: #0b2035;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .flag-card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .flag-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .flag-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* WHAT TO DO */
+    .response-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .response-card {
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .response-card h3 {
+      margin-bottom: 18px;
+    }
+
+    .response-card ul {
+      list-style: none;
+    }
+
+    .response-card li {
+      padding: 11px 0;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .response-card li:last-child {
+      border-bottom: none;
+    }
+
+    .response-card li span {
+      color: var(--green);
+      margin-right: 8px;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 70px 0;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 50px 25px;
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(22,169,255,.16), rgba(32,227,255,.03)),
+        #0a1c30;
+      border: 1px solid rgba(32,227,255,.18);
+    }
+
+    .cta-box h2 {
+      margin: 8px 0 12px;
+    }
+
+    .cta-box p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 9px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #00101c;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(32,227,255,.18);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(32,227,255,.4);
+      color: var(--cyan);
+    }
+
+    .btn-outline:hover {
+      background: rgba(32,227,255,.08);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #040c15;
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 950px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: #06111f;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .flags-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .threat-grid,
+      .response-box {
+        grid-template-columns: 1fr;
+      }
+
+      .flags-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      section {
+        padding: 60px 0;
+      }
+
+      .threat-card {
+        padding: 22px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container navbar">
+
+      <a href="index.html" class="logo">
+        Cyber<span>Safe</span>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="threats.html" class="active">Threats</a></li>
+        <li><a href="safety.html">Safety</a></li>
+        <li><a href="workshop.html">Workshop</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="report.html">Report</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+
+      <div class="badge">CYBER THREATS AWARENESS</div>
+
+      <h1>
+        Know the Threats.<br>
+        <span>Protect Yourself.</span>
+      </h1>
+
+      <p>
+        Learn how common cyber scams work, recognize their warning signs
+        and develop safer habits before sharing information, clicking links
+        or making online payments.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- QUICK NAVIGATION -->
+  <div class="quick-nav">
+    <div class="container">
+
+      <div class="quick-links">
+        <a href="#phishing">Phishing</a>
+        <a href="#payment">Payment Fraud</a>
+        <a href="#kyc">KYC Scam</a>
+        <a href="#job">Job Scam</a>
+        <a href="#identity">Identity Theft</a>
+        <a href="#malware">Malware</a>
+        <a href="#social">Social Engineering</a>
+        <a href="#ai">AI / Deepfake</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- THREATS -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <div class="mini">Understand The Risk</div>
+        <h2>Common Cyber Threats</h2>
+        <p>
+          Scams can look different, but many use urgency, fear,
+          impersonation or attractive offers to influence decisions.
+        </p>
+      </div>
+
+      <div class="threat-grid">
+
+        <!-- PHISHING -->
+        <article class="threat-card" id="phishing">
+
+          <div class="threat-head">
+            <div class="threat-icon">🎣</div>
+            <div>
+              <h3>Phishing</h3>
+              <small>Fake messages & websites</small>
+            </div>
+          </div>
+
+          <p>
+            Phishing attempts try to trick people into opening malicious
+            links or providing passwords, financial information or other
+            sensitive details.
+          </p>
+
+          <div class="info-box warning-box">
+            <strong>⚠️ Warning Signs</strong>
+            <p>
+              Urgent language, unexpected links, unusual sender addresses,
+              requests for passwords or OTPs, and unfamiliar websites.
+            </p>
+          </div>
+
+          <div class="info-box safe-box">
+            <strong>🛡️ Stay Safe</strong>
+            <p>
+              Verify the sender independently. Avoid entering sensitive
+              information through unexpected links.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- PAYMENT -->
+        <article class="threat-card" id="payment">
+
+          <div class="threat-head">
+            <div class="threat-icon">💳</div>
+            <div>
+              <h3>Payment Fraud</h3>
+              <small>Digital payment scams</small>
+            </div>
+          </div>
+
+          <p>
+            Fraudsters may use fake payment requests, impersonation,
+            QR-code tricks or other social-engineering methods to
+            influence a victim into making or authorizing a payment.
+          </p>
+
+          <div class="info-box warning-box">
+            <strong>⚠️ Warning Signs</strong>
+            <p>
+              Pressure to pay immediately, unexpected payment requests,
+              unknown QR codes and requests to share PINs or OTPs.
+            </p>
+          </div>
+
+          <div class="info-box safe-box">
+            <strong>🛡️ Stay Safe</strong>
+            <p>
+              Verify payment requests through a trusted channel and
+              never share UPI PINs, passwords or OTPs.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- KYC -->
+        <article class="threat-card" id="kyc">
+
+          <div class="threat-head">
+            <div class="threat-icon">🏦</div>
+            <div>
+              <h3>KYC Scam</h3>
+              <small>Fake verification requests</small>
+            </div>
+          </div>
+
+          <p>
+            A scammer may impersonate a bank, service provider or other
+            organization and claim that an account will be blocked unless
+            KYC or verification is completed immediately.
+          </p>
+
+          <div class="info-box warning-box">
+            <strong>⚠️ Warning Signs</strong>
+            <p>
+              Threats of account closure, requests for OTPs or PINs,
+              unknown APK/app installations and suspicious links.
+            </p>
+          </div>
+
+          <div class="info-box safe-box">
+            <strong>🛡️ Stay Safe</strong>
+            <p>
+              Contact the organization using its official website,
+              app or known customer-service channel.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- JOB SCAM -->
+        <article class="threat-card" id="job">
+
+          <div class="threat-head">
+            <div class="threat-icon">💼</div>
+            <div>
+              <h3>Job Scams</h3>
+              <small>Fake employment offers</small>
+            </div>
+          </div>
+
+          <p>
+            Fake job offers may promise easy income and then ask applicants
+            for registration fees, deposits, personal information or
+            access to accounts.
+          </p>
+
+          <div class="info-box warning-box">
+            <strong>⚠️ Warning Signs</strong>
+            <p>
+              Guaranteed income, payment before employment, pressure to
+              act quickly and communication only through unofficial channels.
+            </p>
+          </div>
+
+          <div class="info-box safe-box">
+            <strong>🛡️ Stay Safe</strong>
+            <p>
+              Research the employer independently and verify the vacancy
+              through an official company website.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- IDENTITY -->
+        <article class="threat-card" id="identity">
+
+          <div class="threat-head">
+            <div class="threat-icon">👤</div>
+            <div>
+              <h3>Identity Theft</h3>
+              <small>Misuse of personal information</small>
+            </div>
+          </div>
+
+          <p>
+            Identity theft involves unauthorized use of another person's
+            personal information, credentials or identity-related data.
+          </p>
+
+          <div class="info-box warning-box">
+            <strong>⚠️ Warning Signs</strong>
+            <p>
+              Unknown account activity, unexpected login alerts,
+              unfamiliar transactions or services you did not request.
+            </p>
+          </div>
+
+          <div class="info-box safe-box">
+            <strong>🛡️ Stay Safe</strong>
+            <p>
+              Limit unnecessary sharing of personal information and use
+              strong, unique credentials with multi-factor authentication.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- MALWARE -->
+        <article class="threat-card" id="malware">
+
+          <div class="threat-head">
+            <div class="threat-icon">🦠</div>
+            <div>
+              <h3>Malware</h3>
+              <small>Harmful software</small>
+            </div>
+          </div>
+
+          <p>
+            Malware is software designed to perform harmful or unauthorized
+            actions on a device, such as stealing information or disrupting
+            normal operation.
+          </p>
+
+          <div class="info-box warning-box">
+            <strong>⚠️ Warning Signs</strong>
+            <p>
+              Unknown applications, unusual device behavior, unexpected
+              pop-ups and suspicious downloads.
+            </p>
+          </div>
+
+          <div class="info-box safe-box">
+            <strong>🛡️ Stay Safe</strong>
+            <p>
+              Keep software updated, use trusted app sources and avoid
+              opening unexpected attachments or downloads.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- SOCIAL ENGINEERING -->
+        <article class="threat-card" id="social">
+
+          <div class="threat-head">
+            <div class="threat-icon">🧠</div>
+            <div>
+              <h3>Social Engineering</h3>
+              <small>Manipulation & impersonation</small>
+            </div>
+          </div>
+
+          <p>
+            Social engineering uses psychological manipulation to convince
+            people to reveal information, transfer money or perform
+            an unsafe action.
+          </p>
+
+          <div class="info-box warning-box">
+            <strong>⚠️ Warning Signs</strong>
+            <p>
+              Fear, urgency, authority claims, secrecy and requests to
+              bypass normal verification procedures.
+            </p>
+          </div>
+
+          <div class="info-box safe-box">
+            <strong>🛡️ Stay Safe</strong>
+            <p>
+              Slow down and verify unusual requests independently,
+              especially when money or sensitive information is involved.
+            </p>
+          </div>
+
+        </article>
+
+        <!-- AI -->
+        <article class="threat-card" id="ai">
+
+          <div class="threat-head">
+            <div class="threat-icon">🤖</div>
+            <div>
+              <h3>AI & Deepfakes</h3>
+              <small>Manipulated digital content</small>
+            </div>
+          </div>
+
+          <p>
+            AI-generated or manipulated audio, images and video can be
+            used to impersonate people or create misleading content.
+          </p>
+
+          <div class="info-box warning-box">
+            <strong>⚠️ Warning Signs</strong>
+            <p>
+              Unexpected emergency requests, unusual audio/video,
+              inconsistent details and requests that cannot be independently
+              verified.
+            </p>
+          </div>
+
+          <div class="info-box safe-box">
+            <strong>🛡️ Stay Safe</strong>
+            <p>
+              Verify important requests using a separate trusted channel
+              instead of relying only on a voice, image or video.
+            </p>
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RED FLAGS -->
+  <section class="red-flags">
+    <div class="container">
+
+      <div class="section-title">
+        <div class="mini">Think Before You Act</div>
+        <h2>Common Red Flags</h2>
+        <p>
+          A single sign does not prove that something is fraudulent,
+          but several warning signs together deserve extra caution.
+        </p>
+      </div>
+
+      <div class="flags-grid">
+
+        <div class="flag-card">
+          <div class="icon">⏰</div>
+          <h3>Urgency</h3>
+          <p>
+            “Act now” or “your account will be blocked” messages
+            are designed to create pressure.
+          </p>
+        </div>
+
+        <div class="flag-card">
+          <div class="icon">🔑</div>
+          <h3>Secret Information</h3>
+          <p>
+            Requests for OTPs, PINs, passwords or recovery codes
+            should receive careful attention.
+          </p>
+        </div>
+
+        <div class="flag-card">
+          <div class="icon">🔗</div>
+          <h3>Unknown Links</h3>
+          <p>
+            Unexpected links can lead to fake websites or harmful
+            downloads.
+          </p>
+        </div>
+
+        <div class="flag-card">
+          <div class="icon">💰</div>
+          <h3>Unexpected Money Request</h3>
+          <p>
+            Verify unexpected requests for money through a trusted,
+            independent channel.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESPONSE -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <div class="mini">If Something Goes Wrong</div>
+        <h2>What Should You Do?</h2>
+        <p>
+          Quick, careful action can be important after a cyber incident.
+        </p>
+      </div>
+
+      <div class="response-box">
+
+        <div class="response-card">
+          <h3>🚨 Immediate Steps</h3>
+
+          <ul>
+            <li>
+              <span>✓</span>
+              Stop interacting with the suspicious person, link or app.
+            </li>
+
+            <li>
+              <span>✓</span>
+              Preserve relevant messages, screenshots and transaction details.
+            </li>
+
+            <li>
+              <span>✓</span>
+              Secure affected accounts and change compromised
+```
